@@ -43,9 +43,16 @@ Route::prefix('/manajer-divisi')->middleware(['auth', CheckManagerDivisiRole::cl
     });
 });
 
+// TODO: Implement role middleware
 Route::prefix('admin')->group(function() {
     Route::get('/user-management', [UserController::class, 'getUsers'])->name('user-management');
     Route::view('/user-register', 'admin.user-register')->name('user-register-post');
     Route::post('/user-register', [UserController::class, 'register'])->name('user-register-get');
 });
 
+// TODOL Implement role middleware
+Route::prefix('direktur')->group(function() {
+    Route::prefix('received-purchase-requests')->group(function() {
+        Route::get('/', [PurchaseRequestController::class, 'direkturShow']);        
+    });
+});

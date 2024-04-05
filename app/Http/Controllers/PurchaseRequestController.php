@@ -45,4 +45,21 @@ class PurchaseRequestController extends Controller
         return view('view-purchase-request', ['rows' => $rows]);
         
     }
+
+    /**
+     * View PR Data untuk Direktur
+     */
+    public function direkturShow(Request $request): View {
+        // get all purchase request with status=1
+        $rows = DB::table('purchase_request')
+                ->select(['id',
+                          'purchase_request_number',
+                          'purchase_request_name',
+                          'purchase_request_date',
+                          'id_user'])
+                ->where('status', '=', 1)
+                ->get();
+        
+        return view('received-purchase-requests', ['rows' => $rows]);
+    }
 }
