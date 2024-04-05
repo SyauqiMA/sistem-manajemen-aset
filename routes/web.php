@@ -35,12 +35,13 @@ Route::prefix('login')->group(function() {
 
 Route::post('/logout', [UserController::class, 'logout']);
 
-Route::prefix('purchase-request')->middleware(['auth', CheckManagerDivisiRole::class])->group(function() {
-    Route::get('/', [PurchaseRequestController::class, 'show']);
-    Route::view('/add', 'input-purchase-request');
-    Route::post('/add', [PurchaseRequestController::class, 'add']);
+Route::prefix('/manajer-divisi')->middleware(['auth', CheckManagerDivisiRole::class])->group(function() {
+    Route::prefix('purchase-request')->group(function() {
+        Route::get('/', [PurchaseRequestController::class, 'show'])->name('manager-divisi-landing');
+        Route::view('/add', 'input-purchase-request');
+        Route::post('/add', [PurchaseRequestController::class, 'add']);
+    });
 });
-
 
 Route::prefix('admin')->group(function() {
     Route::get('/user-management', [UserController::class, 'getUsers'])->name('user-management');
