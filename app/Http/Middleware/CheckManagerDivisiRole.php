@@ -16,9 +16,10 @@ class CheckManagerDivisiRole
     public function handle(Request $request, Closure $next): Response
     {
         // check if user's role is "Manager Divisi"
-        $userRole = $request->user()->id_level;
+        // $userRole = $request->user()->id_level;
+        $userRole = session('user_level');
 
-        if($userRole !== '3') { // Manager Divisi = 3
+        if($userRole !== "Manager Divisi") {
             return back();
         }
 

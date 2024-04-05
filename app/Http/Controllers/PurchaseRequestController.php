@@ -38,7 +38,8 @@ class PurchaseRequestController extends Controller
         $rows = DB::table('purchase_request')
                 ->select(['purchase_request_number',
                         'purchase_request_name',
-                        'purchase_request_date'])
+                        'purchase_request_date',
+                        'status'])
                 ->get();
         
         return view('view-purchase-request', ['rows' => $rows]);
