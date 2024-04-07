@@ -62,4 +62,20 @@ class PurchaseRequestController extends Controller
         
         return view('received-purchase-requests', ['rows' => $rows]);
     }
+
+    /**
+     * Reject Purchase Request
+     */
+    public function rejectPurchaseRequest(Request $request): void {
+        // TODO
+        return;
+    }
+
+    /**
+     * Accept Purchase Request
+     */
+    public function acceptPurchaseRequest(Request $request): void {
+        // TODO
+        return;
+    }
 }
