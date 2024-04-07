@@ -54,5 +54,7 @@ Route::prefix('admin')->group(function() {
 Route::prefix('direktur')->group(function() {
     Route::prefix('received-purchase-requests')->group(function() {
         Route::get('/', [PurchaseRequestController::class, 'direkturShow']);        
+        Route::post('/accept', null); // TODO
+        Route::post('/reject', null); // TODO
     });
 });
