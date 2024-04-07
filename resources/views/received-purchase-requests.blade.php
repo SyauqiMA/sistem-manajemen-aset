@@ -23,7 +23,14 @@
                     <td>{{$row->purchase_request_number}}</td>
                     <td>{{$row->purchase_request_name}}</td>
                     <td>{{$row->purchase_request_date}}</td>
-                    <td>TODO</td>
+                    <td>
+                        {{-- Form Terima --}}
+                        <form action="/{{Request::path()}}/accept" method="post">
+                            <input type="hidden" name="id" value="{{$row->id}}">
+                            <button type="submit">Terima</button>
+                            <button type="submit" formaction="/{{Request::path()}}/reject">Tolak</button>
+                        </form>
+                    </td>
                 </tr>
             @endforeach
         </table>
