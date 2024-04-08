@@ -50,11 +50,11 @@ Route::prefix('admin')->group(function() {
     Route::post('/user-register', [UserController::class, 'register'])->name('user-register-get');
 });
 
-// TODOL Implement role middleware
+// TODO Implement role middleware
 Route::prefix('direktur')->group(function() {
     Route::prefix('received-purchase-requests')->group(function() {
         Route::get('/', [PurchaseRequestController::class, 'direkturShow']);        
-        Route::post('/accept', null); // TODO
-        Route::post('/reject', null); // TODO
+        Route::post('/accept', [PurchaseRequestController::class, 'acceptPRDirektur']);
+        Route::post('/reject', [PurchaseRequestController::class, 'rejectPRDirektur']);
     });
 });
