@@ -58,3 +58,11 @@ Route::prefix('direktur')->group(function() {
         Route::post('/reject', [PurchaseRequestController::class, 'rejectPRDirektur']);
     });
 });
+
+// TODO Implement role middleware
+Route::prefix('manajer-procurement')->group(function() {
+    Route::prefix('received-purchase-requests')->group(function() {
+        Route::post('/accept', [PurchaseRequestController::class, 'acceptPRManProc']);
+        Route::post('/reject', [PurchaseRequestController::class, 'rejectPRManProc']);
+    });
+});
