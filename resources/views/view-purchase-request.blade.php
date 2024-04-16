@@ -26,13 +26,16 @@
                         <td>Pending</td>
                         @break
                     @case(2)
-                        <td>Proses</td>
+                        <td>Proses (Diterima oleh Direktur)</td>
                         @break
                     @case(3)
                         <td>Diterima</td>
                         @break
                     @case(4)
-                        <td>Ditolak</td>
+                        <td>Ditolak oleh Direktur</td>
+                        @break
+                    @case(5)
+                        <td>Ditolak oleh Manajer Procurement</td>
                         @break
                     @default
                 @endswitch
