@@ -53,7 +53,7 @@ Route::prefix('admin')->group(function() {
 // TODO Implement role middleware
 Route::prefix('direktur')->group(function() {
     Route::prefix('received-purchase-requests')->group(function() {
-        Route::get('/', [PurchaseRequestController::class, 'direkturShow']);        
+        Route::get('/', [PurchaseRequestController::class, 'direkturShow'])->name('direktur-landing');        
         Route::post('/accept', [PurchaseRequestController::class, 'acceptPRDirektur']);
         Route::post('/reject', [PurchaseRequestController::class, 'rejectPRDirektur']);
     });
@@ -62,7 +62,7 @@ Route::prefix('direktur')->group(function() {
 // TODO Implement role middleware
 Route::prefix('manajer-procurement')->group(function() {
     Route::prefix('received-purchase-requests')->group(function() {
-        Route::get('/', [PurchaseRequestController::class, 'manProcShow']);
+        Route::get('/', [PurchaseRequestController::class, 'manProcShow'])->name('manager-procurement-landing');
         Route::post('/accept', [PurchaseRequestController::class, 'acceptPRManProc']);
         Route::post('/reject', [PurchaseRequestController::class, 'rejectPRManProc']);
     });
