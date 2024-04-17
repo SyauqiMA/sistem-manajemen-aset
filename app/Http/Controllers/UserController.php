@@ -57,9 +57,18 @@ class UserController extends Controller
             session(['user_level' => $levelName->nama_level]);
             session(['user_dept' => $deptName->departemen_name]);
 
-            $user = $request->user();
+            // check user's role in session values and redirect accordingly
+            $userRole = session('user_level');
 
-            return redirect()->intended('/landing-test');
+            if($userRole === "Admin") {
+                return redirect()->route('user-management');
+            } else if($userRole === "Direktur") {
+                return redirect()->route('direktur-landing');
+            } else if($userRole === "Manager Divisi") {
+                return redirect()->route('manager-divisi-landing');
+            } else if($userRole === "Manager Procurement") {
+                return redirect()->route('manager-procurement-landing');
+            }
         }
 
         // if login fails
