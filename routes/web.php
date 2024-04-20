@@ -4,7 +4,10 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PurchaseRequestController;
 use App\Http\Controllers\UserController;
+use App\Http\Middleware\CheckAdminRole;
+use App\Http\Middleware\CheckDirekturRole;
 use App\Http\Middleware\CheckManagerDivisiRole;
+use App\Http\Middleware\CheckManagerProcurementRole;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,15 +46,13 @@ Route::prefix('/manajer-divisi')->middleware(['auth', CheckManagerDivisiRole::cl
     });
 });
 
-// TODO: Implement role middleware
-Route::prefix('admin')->group(function() {
+Route::prefix('admin')->middleware(['auth', CheckAdminRole::class])->group(function() {
     Route::get('/user-management', [UserController::class, 'getUsers'])->name('user-management');
     Route::view('/user-register', 'admin.user-register')->name('user-register-post');
     Route::post('/user-register', [UserController::class, 'register'])->name('user-register-get');
 });
 
-// TODO Implement role middleware
-Route::prefix('direktur')->group(function() {
+Route::prefix('direktur')->middleware(['auth', CheckDirekturRole::class])->group(function() {
     Route::prefix('received-purchase-requests')->group(function() {
         Route::get('/', [PurchaseRequestController::class, 'direkturShow'])->name('direktur-landing');        
         Route::post('/accept', [PurchaseRequestController::class, 'acceptPRDirektur']);
@@ -59,8 +60,7 @@ Route::prefix('direktur')->group(function() {
     });
 });
 
-// TODO Implement role middleware
-Route::prefix('manajer-procurement')->group(function() {
+Route::prefix('manajer-procurement')->middleware(['auth', CheckManagerProcurementRole::class])->group(function() {
     Route::prefix('received-purchase-requests')->group(function() {
         Route::get('/', [PurchaseRequestController::class, 'manProcShow'])->name('manager-procurement-landing');
         Route::post('/accept', [PurchaseRequestController::class, 'acceptPRManProc']);
