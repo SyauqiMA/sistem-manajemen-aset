@@ -1,3 +1,6 @@
+@extends('templates.layout')
+
+@section('main-content')
 <div>
     
     <!-- Let all your things have their places; let each part of your business have its time. - Benjamin Franklin -->
@@ -28,4 +31,5 @@
         <input type="date" name="pr-date" id="pr-date" value="{{old('pr-date')}}" required> <br>
         <button type="submit">Submit</button>
     </form>
-</div>
+</div>    
+@endsection

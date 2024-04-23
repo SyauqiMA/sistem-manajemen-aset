@@ -1,10 +1,12 @@
+@extends('templates.layout')
+
+@section('main-content')
 <div>
     <style>
         table, th, td {
             border: 1px solid black;
         }
     </style>
-    <!-- Simplicity is the consequence of refined emotions. - Jean D'Alembert -->
     <h1>Purchase Request</h1>
 
     <a href="/purchase-request/add">Tambah Purchase Request</a>
@@ -42,4 +44,6 @@
             </tr>
         @endforeach
     </table>
-</div>
+</div>    
+@endsection
+
