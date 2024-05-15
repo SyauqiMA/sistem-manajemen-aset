@@ -9,7 +9,7 @@
     </style>
     <h1>Purchase Request</h1>
 
-    <a href="/purchase-request/add">Tambah Purchase Request</a>
+    <a href={{route('input-purchase-request')}}>Tambah Purchase Request</a>
 
     <table>
         <tr>
