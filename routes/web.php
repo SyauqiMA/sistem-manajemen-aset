@@ -34,7 +34,7 @@ Route::post('/logout', [UserController::class, 'logout']);
 Route::prefix('/manajer-divisi')->middleware(['auth', CheckManagerDivisiRole::class])->group(function() {
     Route::prefix('purchase-request')->group(function() {
         Route::get('/', [PurchaseRequestController::class, 'show'])->name('manager-divisi-landing');
-        Route::view('/add', 'input-purchase-request');
+        Route::view('/add', 'input-purchase-request')->name('input-purchase-request');
         Route::post('/add', [PurchaseRequestController::class, 'add']);
     });
 });
