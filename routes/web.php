@@ -22,11 +22,6 @@ use App\Http\Middleware\CheckManagerProcurementRole;
 
 Route::redirect('/', '/login');
 
-Route::view('/input-aset', 'input-aset');
-Route::get('/lihat-aset', function () {
-    return "Halaman Lihat Data aset";
-});
-
 Route::view('/landing-test', 'landing-test')->middleware('auth');
 
 Route::prefix('login')->group(function() {

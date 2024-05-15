@@ -2,7 +2,7 @@
     <!-- No surplus words or unnecessary actions. - Marcus Aurelius -->
 
     {{-- Profile badge component begin --}}
-    <p>Selamat datang, <b>{{Auth::user()->username}}</b> dari departemen <b>{{session('user_dept')}}</b></p>
+    <p>Selamat datang, <b>{{session('username')}}</b> dari departemen <b>{{session('user_dept')}}</b></p>
     <p>Role Anda adalah <b>{{session('user_level')}}</b></p>
     {{-- Profile badge component end --}}
 
