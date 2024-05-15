@@ -54,6 +54,7 @@ class UserController extends Controller
             $deptName = DB::table('departemen')->select('departemen_name')->where('id', '=', Auth::user()->id_departemen)->first();
 
             // Add values to user session
+            session(['username' => $credentials['username']]);
             session(['user_level' => $levelName->nama_level]);
             session(['user_dept' => $deptName->departemen_name]);
 
