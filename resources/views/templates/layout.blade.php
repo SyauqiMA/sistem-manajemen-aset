@@ -8,6 +8,11 @@
 </head>
 <body>
     <nav>
+        {{-- Profile badge component begin --}}
+        <p>Selamat datang, <b>{{session('username')}}</b> dari departemen <b>{{session('user_dept')}}</b></p>
+        <p>Role Anda adalah <b>{{session('user_level')}}</b></p>
+        {{-- Profile badge component end --}}
+
         @switch(session('user_level'))
             @case("Manager Divisi")
                 <ul>
