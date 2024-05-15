@@ -1,3 +1,6 @@
+@extends('templates.layout')
+
+@section('main-content')
 <div>
     <style>
         table, th, td {
@@ -37,3 +40,4 @@
         @endforeach
     </table>
 </div>
+@endsection
