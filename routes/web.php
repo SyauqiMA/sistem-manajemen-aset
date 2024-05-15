@@ -20,9 +20,7 @@ use App\Http\Middleware\CheckManagerProcurementRole;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::redirect('/', '/login');
 
 Route::view('/input-aset', 'input-aset');
 Route::get('/lihat-aset', function () {
